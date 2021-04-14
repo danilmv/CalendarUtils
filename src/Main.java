@@ -11,7 +11,10 @@ public class Main {
         System.out.println(Locale.getDefault().getDisplayName());
 
         System.out.println(getCurrentDate());
+        System.out.println(getCurrentDate2());
         System.out.println(getCurrentTime());
+
+        System.out.println(getTomorrowDate());
     }
 
     public static String getCurrentDate() {
@@ -21,7 +24,17 @@ public class Main {
         return new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Calendar.getInstance().getTime());
     }
 
-    public static String getCurrentTime(){
+    public static String getCurrentDate2() {
+        return new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(new Date());
+    }
+
+    public static String getTomorrowDate() {
+        Date tomorrow = new Date();
+        tomorrow.setTime(tomorrow.getTime() + 24 * 3600 * 1000);
+        return new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(tomorrow);
+    }
+
+    public static String getCurrentTime() {
         return new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Calendar.getInstance().getTime());
     }
 }
